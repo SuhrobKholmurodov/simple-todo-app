@@ -1,13 +1,29 @@
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './App.css'
+import TaskPages from './pages/TaskPages'
+import Home from './pages/Home'
+import NotFound from './pages/NotFound'
 
-function App() {
+const App = () => {
+  const router = createBrowserRouter([
+    {
+      index: true,
+      element: <Home />
+    },
+    {
+      path: '/tasks',
+      element: <TaskPages />
+    }, 
+    {
+      path: '*',
+      element: <NotFound />
+    }
+  ])
 
   return (
-    <>
     <div>
-      <h1>Simple todo app</h1>
+      <RouterProvider router={router} />
     </div>
-    </>
   )
 }
 
