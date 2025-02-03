@@ -10,7 +10,7 @@ interface Task {
   isCompleted: boolean
 }
 
-const TaskPages = () => {
+const TaskDetails = () => {
   const { taskId } = useParams()
   const navigate = useNavigate()
   const parsedTaskId = taskId ? parseInt(taskId, 10) : null
@@ -156,4 +156,4 @@ const TaskPages = () => {
   )
 }
 
-export default TaskPages
+export default TaskDetails

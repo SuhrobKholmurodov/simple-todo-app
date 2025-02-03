@@ -1,5 +1,5 @@
+import { AddTask, Tasks } from '@/components'
 import { useEffect, useState } from 'react'
-import { AddTask, Tasks } from '../components'
 
 interface Task {
   id: number

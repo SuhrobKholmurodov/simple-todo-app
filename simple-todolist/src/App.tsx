@@ -1,10 +1,10 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './App.css'
-import TaskPages from './pages/TaskPages'
-import Home from './pages/Home'
-import NotFound from './pages/NotFound'
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import Home from './pages/Home'
+import TaskDetails from './pages/TaskDetails'
+import NotFound from './pages/NotFound'
 
 const App = () => {
   const router = createBrowserRouter([
@@ -14,7 +14,7 @@ const App = () => {
     },
     {
       path: '/tasks/:taskId',
-      element: <TaskPages />
+      element: <TaskDetails />
     },
     {
       path: '*',
