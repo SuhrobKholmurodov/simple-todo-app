@@ -11,9 +11,9 @@ const App = () => {
       element: <Home />
     },
     {
-      path: '/tasks',
+      path: '/tasks/:taskId',
       element: <TaskPages />
-    }, 
+    },
     {
       path: '*',
       element: <NotFound />
