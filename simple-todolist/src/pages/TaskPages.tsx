@@ -1,6 +1,7 @@
 import { useNavigate, useParams } from 'react-router-dom'
 import { CheckCircle, ChevronLeft, Edit, XCircle } from 'lucide-react'
 import { useState } from 'react'
+import { toast } from 'react-toastify'
 
 interface Task {
   id: number
@@ -19,11 +20,27 @@ const TaskPages = () => {
   const task = tasks.find(t => t.id === parsedTaskId)
 
   const [isEditing, setIsEditing] = useState(false)
-  const [editedTitle, setEditedTitle] = useState(task?.title)
-  const [editedDescription, setEditedDescription] = useState(task?.description)
-  const [editedIsCompleted, setEditedIsCompleted] = useState(task?.isCompleted)
+  const [editedTitle, setEditedTitle] = useState(task?.title || '')
+  const [editedDescription, setEditedDescription] = useState(
+    task?.description || ''
+  )
+  const [editedIsCompleted, setEditedIsCompleted] = useState(
+    task?.isCompleted || false
+  )
 
   const handleSave = () => {
+    if (!editedTitle.trim() || !editedDescription.trim()) {
+      toast.error('Please fill in all fields', {
+        position: 'top-right',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true
+      })
+      return
+    }
+
     const updatedTasks = tasks.map(t =>
       t.id === task?.id
         ? {
@@ -34,8 +51,18 @@ const TaskPages = () => {
           }
         : t
     )
+
     localStorage.setItem('tasks', JSON.stringify(updatedTasks))
     setIsEditing(false)
+
+    toast.success('Changes saved successfully!', {
+      position: 'top-right',
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true
+    })
   }
 
   if (!task) {
@@ -62,7 +89,6 @@ const TaskPages = () => {
             <Edit size={20} />
           </button>
         </div>
-
         <div className='flex items-center gap-2'>
           <p className='font-medium text-slate-700'>Title:</p>
           {isEditing ? (
@@ -76,7 +102,6 @@ const TaskPages = () => {
             <p className='text-slate-600'>{task.title}</p>
           )}
         </div>
-
         <div className='flex items-center gap-2'>
           <p className='font-medium text-slate-700'>Description:</p>
           {isEditing ? (
@@ -89,7 +114,6 @@ const TaskPages = () => {
             <p className='text-slate-600'>{task.description}</p>
           )}
         </div>
-
         <div className='flex items-center gap-2'>
           <p className='font-medium text-slate-700'>Status:</p>
           {isEditing ? (
@@ -121,7 +145,7 @@ const TaskPages = () => {
 
         {isEditing && (
           <button
-            className='bg-slate-500 text-white px-4 py-2 rounded-md hover:bg-green-600 w-full'
+            className='bg-slate-500 text-white px-4 py-2 rounded-md hover:bg-slate-600 w-full'
             onClick={handleSave}
           >
             Save Changes

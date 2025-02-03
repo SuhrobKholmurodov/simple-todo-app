@@ -1,5 +1,6 @@
 import { CheckIcon, ChevronRightIcon, TrashIcon } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify' 
 
 interface Task {
   id: number
@@ -14,11 +15,30 @@ interface TasksProps {
   onDeleteTaskClick: (taskId: number) => void
 }
 
-export const Tasks = ({ tasks, onTaskClick, onDeleteTaskClick }: TasksProps) => {
+export const Tasks = ({
+  tasks,
+  onTaskClick,
+  onDeleteTaskClick
+}: TasksProps) => {
   const navigate = useNavigate()
 
   const onSeeDetailsClick = (taskId: number) => {
     navigate(`/tasks/${taskId}`)
+  }
+
+  const handleDeleteTask = (taskId: number) => {
+    if (window.confirm('Are you sure you want to delete this task?')) {
+      onDeleteTaskClick(taskId) 
+
+      toast.success('Task deleted successfully!', {
+        position: 'top-right',
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true
+      })
+    }
   }
 
   return (
@@ -48,7 +68,7 @@ export const Tasks = ({ tasks, onTaskClick, onDeleteTaskClick }: TasksProps) => 
 
               <button
                 className='bg-slate-400 p-2 text-white rounded-md'
-                onClick={() => onDeleteTaskClick(task.id)}
+                onClick={() => handleDeleteTask(task.id)} 
               >
                 <TrashIcon />
               </button>
