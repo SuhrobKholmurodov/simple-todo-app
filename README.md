@@ -1,50 +1,41 @@
-# React + TypeScript + Vite
+# Simple Todo App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the **Simple Todo App**! This is a minimalistic and easy-to-use task management application built with modern web technologies. It allows users to create, manage, and track their tasks efficiently.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Add Tasks**: Quickly add new tasks to your list.
+- **Mark as Complete**: Mark tasks as completed to keep track of your progress.
+- **Delete Tasks**: Remove tasks that are no longer needed.
+- **Responsive Design**: Fully responsive and works seamlessly across devices.
+- **React-Based**: Built using React for a smooth and interactive user experience.
+- **TailwindCSS**: Styled with TailwindCSS for a clean and modern look.
+- **React Router**: Navigation between different views (if applicable).
+- **React Toastify**: Provides user-friendly notifications for actions.
 
-## Expanding the ESLint configuration
+## Technologies Used
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **Frontend Framework**: [React](https://reactjs.org/)
+- **Styling**: [TailwindCSS](https://tailwindcss.com/)
+- **Icons**: [Lucide React](https://lucide.dev/)
+- **Routing**: [React Router DOM](https://reactrouter.com/)
+- **Notifications**: [React Toastify](https://fkhadra.github.io/react-toastify/)
+- **Build Tool**: [Vite](https://vitejs.dev/)
+- **Linting**: [ESLint](https://eslint.org/)
+- **TypeScript**: For type-safe development.
 
-- Configure the top-level `parserOptions` property like this:
+## Getting Started
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+### Prerequisites
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+Make sure you have the following installed on your machine:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+- Node.js (v20 or higher)
+- pnpm (v9.12.3 or higher)
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/simple-todolist.git
+   ```
