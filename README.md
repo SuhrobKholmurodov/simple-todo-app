@@ -39,3 +39,15 @@ Make sure you have the following installed on your machine:
    ```bash
    git clone https://github.com/your-username/simple-todolist.git
    ```
+2. Install dependencies: 
+   ```bash 
+   pnpm install
+   ```
+3. Start the development server: 
+   ```bash
+   pnpm run dev
+   ```
+4. Start the development server with network access
+   ```bash
+   pnpm run dev --host 
+   ```
