@@ -1,13 +1,7 @@
+import { Task } from '@/@types'
 import { CheckIcon, ChevronRightIcon, TrashIcon } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify' 
-
-interface Task {
-  id: number
-  title: string
-  description: string
-  isCompleted: boolean
-}
 
 interface TasksProps {
   tasks: Task[]

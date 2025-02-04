@@ -1,14 +1,8 @@
+import { Task } from '@/@types'
 import { AddTask, Tasks } from '@/components'
 import { useEffect, useState } from 'react'
 
-interface Task {
-  id: number
-  title: string
-  description: string
-  isCompleted: boolean
-}
-
-function Home () {
+export const  Home = () => {
   const [tasks, setTasks] = useState<Task[]>(() => {
     const storedTasks = localStorage.getItem('tasks')
     return storedTasks ? JSON.parse(storedTasks) : []
@@ -56,5 +50,3 @@ function Home () {
     </div>
   )
 }
-
-export default Home

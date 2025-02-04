@@ -10,7 +10,7 @@ interface Task {
   isCompleted: boolean
 }
 
-const TaskDetails = () => {
+export const TaskDetails = () => {
   const { taskId } = useParams()
   const navigate = useNavigate()
   const parsedTaskId = taskId ? parseInt(taskId, 10) : null
@@ -155,5 +155,3 @@ const TaskDetails = () => {
     </div>
   )
 }
-
-export default TaskDetails
